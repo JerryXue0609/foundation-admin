@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
-		<groupId>io.renren</groupId>
-		<artifactId>renren-security</artifactId>
-		<version>4.0.0</version>
+		<groupId>com.jerry</groupId>
+		<artifactId>foundation-admin</artifactId>
+		<version>1.0.0</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>renren-admin</artifactId>
+	<artifactId>admin</artifactId>
 	<packaging>jar</packaging>
-	<description>renren-admin</description>
+	<description>admin</description>
 
 	<properties>
 		<quartz.version>2.3.0</quartz.version>
@@ -21,9 +21,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>io.renren</groupId>
-			<artifactId>renren-common</artifactId>
-			<version>4.0.0</version>
+			<groupId>com.jerry</groupId>
+			<artifactId>common</artifactId>
+			<version>1.0.0</version>
 		</dependency>
 		<!-- 集群环境，需要打开注释 -->
 		<!--<dependency>-->
@@ -96,9 +96,9 @@
 			</exclusions>
 		</dependency>
         <dependency>
-            <groupId>io.renren</groupId>
-            <artifactId>renren-dynamic-datasource</artifactId>
-            <version>4.0.0</version>
+            <groupId>com.jerry</groupId>
+            <artifactId>dynamic-datasource</artifactId>
+            <version>1.0.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

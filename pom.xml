@@ -14,11 +14,11 @@
 	</parent>
 
     <modules>
-        <module>renren-common</module>
-        <module>renren-admin</module>
-        <module>renren-api</module>
-		<module>renren-dynamic-datasource</module>
-        <module>renren-generator</module>
+        <module>common</module>
+        <module>admin</module>
+        <module>api</module>
+		<module>dynamic-datasource</module>
+        <module>admin-generator</module>
     </modules>
 
     <properties>
@@ -172,7 +172,7 @@
         </dependency>
     </dependencies>
 
-    <!-- 阿里云maven仓库 -->
+<!--     阿里云maven仓库-->
     <repositories>
         <repository>
             <id>public</id>
