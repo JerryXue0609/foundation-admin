@@ -3,7 +3,7 @@ package ${package}.${moduleName}.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import io.renren.common.validator.ValidatorUtils;
+import ValidatorUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ${package}.${moduleName}.entity.${className}Entity;
 import ${package}.${moduleName}.service.${className}Service;
 import ${mainPath}.common.utils.PageUtils;
-import ${mainPath}.common.utils.R;
+import ${mainPath}.common.utils.Result;
 
 
 
