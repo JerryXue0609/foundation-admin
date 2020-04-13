@@ -4,6 +4,9 @@ import com.jerry.modules.foundation.entity.FoundationEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.HashMap;
+import java.util.List;
+
 /**
  * 基金实体类
  * 
@@ -13,5 +16,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface FoundationDao extends BaseMapper<FoundationEntity> {
-	
+    List<HashMap<String,Double>> getThemeMoney();
 }

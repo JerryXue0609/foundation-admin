@@ -16,5 +16,9 @@ import java.util.Map;
 public interface FoundationService extends IService<FoundationEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    boolean saveEntity(FoundationEntity foundationEntity);
+
+    boolean updateEntity(FoundationEntity foundationEntity);
 }
 

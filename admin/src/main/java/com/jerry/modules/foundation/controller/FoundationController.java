@@ -1,17 +1,16 @@
 package com.jerry.modules.foundation.controller;
 
+
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
 import com.jerry.common.validator.ValidatorUtils;
+import oracle.jdbc.proxy.annotation.Post;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.jerry.modules.foundation.entity.FoundationEntity;
 import com.jerry.modules.foundation.service.FoundationService;
@@ -44,6 +43,18 @@ public class FoundationController {
         return Result.ok().put("page", page);
     }
 
+    /**
+     * 基金统计
+     */
+    @PostMapping("/statistics")
+    @ResponseBody
+    public Result statistics(){
+        List<FoundationEntity> foundationEntityList =  foundationService.list();
+
+
+        return Result.ok().put("data", foundationEntityList);
+    }
+
 
     /**
      * 信息
@@ -62,8 +73,7 @@ public class FoundationController {
     @RequestMapping("/save")
     @RequiresPermissions("foundation:foundation:save")
     public Result save(@RequestBody FoundationEntity foundation){
-        foundationService.save(foundation);
-
+        foundationService.saveEntity(foundation);
         return Result.ok();
     }
 
@@ -74,8 +84,7 @@ public class FoundationController {
     @RequiresPermissions("foundation:foundation:update")
     public Result update(@RequestBody FoundationEntity foundation){
         ValidatorUtils.validateEntity(foundation);
-        foundationService.updateById(foundation);
-        
+        foundationService.updateEntity(foundation);
         return Result.ok();
     }
 
@@ -86,7 +95,6 @@ public class FoundationController {
     @RequiresPermissions("foundation:foundation:delete")
     public Result delete(@RequestBody Integer[] ids){
         foundationService.removeByIds(Arrays.asList(ids));
-
         return Result.ok();
     }
 

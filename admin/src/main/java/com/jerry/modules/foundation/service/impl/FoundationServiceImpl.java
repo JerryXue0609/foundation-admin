@@ -1,6 +1,8 @@
 package com.jerry.modules.foundation.service.impl;
 
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -24,6 +26,18 @@ public class FoundationServiceImpl extends ServiceImpl<FoundationDao, Foundation
         );
 
         return new PageUtils(page);
+    }
+
+    @Override
+    public boolean saveEntity(FoundationEntity foundationEntity) {
+        foundationEntity.setCreatetime(new Date());
+        return this.save(foundationEntity);
+    }
+
+    @Override
+    public boolean updateEntity(FoundationEntity foundationEntity) {
+        foundationEntity.setUpdatetime(new Date());
+        return this.updateById(foundationEntity);
     }
 
 }

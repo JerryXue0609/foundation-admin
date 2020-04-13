@@ -15,5 +15,9 @@
         <result property="updatetime" column="updatetime"/>
     </resultMap>
 
+    <select id="getThemeMoney" resultType="map">
+    select t.theme as 'theme', sum(t.totalMoney) as 'money' from  foundation t
+    GROUP BY t.theme;
+    </select>
 
 </mapper>

@@ -66,7 +66,7 @@ var vm = new Vue({
             vm.getInfo(id)
 		},
 		saveOrUpdate: function (event) {
-		    $('#btnSaveOrUpdate').button('loading').delay(1000).queue(function() {
+		    $('#btnSaveOrUpdate').button('loading').delay(500).queue(function() {
                 var url = vm.foundation.id == null ? "foundation/foundation/save" : "foundation/foundation/update";
                 $.ajax({
                     type: "POST",
