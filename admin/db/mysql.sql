@@ -375,3 +375,26 @@ CREATE INDEX IDX_QRTZ_FT_J_G ON QRTZ_FIRED_TRIGGERS(SCHED_NAME,JOB_NAME,JOB_GROU
 CREATE INDEX IDX_QRTZ_FT_JG ON QRTZ_FIRED_TRIGGERS(SCHED_NAME,JOB_GROUP);
 CREATE INDEX IDX_QRTZ_FT_T_G ON QRTZ_FIRED_TRIGGERS(SCHED_NAME,TRIGGER_NAME,TRIGGER_GROUP);
 CREATE INDEX IDX_QRTZ_FT_TG ON QRTZ_FIRED_TRIGGERS(SCHED_NAME,TRIGGER_GROUP);
+
+
+
+
+
+# Dump of table sys_menu
+# ------------------------------------------------------------
+
+
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`)
+VALUES
+	(41,0,'基金管理',NULL,NULL,0,NULL,0),
+	(42,43,'删除',NULL,'foundation:foundation:delete',2,NULL,6),
+	(43,41,'基金数据维护','modules/foundation/foundation.html',NULL,1,'fa fa-file-code-o',1),
+	(44,43,'查看',NULL,'foundation:foundation:list,foundation:foundation:info',2,NULL,6),
+	(45,43,'新增',NULL,'foundation:foundation:save',2,NULL,6),
+	(46,43,'修改',NULL,'foundation:foundation:update',2,NULL,6),
+	(47,43,'删除',NULL,'foundation:foundation:delete',2,NULL,6),
+	(48,41,'基金统计','modules/foundation/statistics.html',NULL,1,NULL,2);
+
+
+
+
