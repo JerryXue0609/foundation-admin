@@ -1,21 +1,18 @@
 package com.jerry.modules.foundation.controller;
 
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
-
+import com.jerry.common.utils.PageUtils;
+import com.jerry.common.utils.Result;
 import com.jerry.common.validator.ValidatorUtils;
-import oracle.jdbc.proxy.annotation.Post;
+import com.jerry.modules.foundation.entity.FoundationEntity;
+import com.jerry.modules.foundation.service.FoundationService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.jerry.modules.foundation.entity.FoundationEntity;
-import com.jerry.modules.foundation.service.FoundationService;
-import com.jerry.common.utils.PageUtils;
-import com.jerry.common.utils.Result;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 
 
@@ -50,11 +47,19 @@ public class FoundationController {
     @ResponseBody
     public Result statistics(){
         List<FoundationEntity> foundationEntityList =  foundationService.list();
-
-
         return Result.ok().put("data", foundationEntityList);
     }
 
+
+    /**
+     * 基金统计by theme
+     */
+    @PostMapping("/statistics/theme")
+    @ResponseBody
+    public Result statisticsByTheme(){
+        List data = foundationService.getThemeMoney();
+        return Result.ok().put("data", data);
+    }
 
     /**
      * 信息

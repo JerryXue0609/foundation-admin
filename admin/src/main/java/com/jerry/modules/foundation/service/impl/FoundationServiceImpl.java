@@ -1,8 +1,11 @@
 package com.jerry.modules.foundation.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -18,6 +21,9 @@ import com.jerry.modules.foundation.service.FoundationService;
 @Service("foundationService")
 public class FoundationServiceImpl extends ServiceImpl<FoundationDao, FoundationEntity> implements FoundationService {
 
+
+    @Autowired
+    private FoundationDao foundationDao;
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<FoundationEntity> page = this.page(
@@ -26,6 +32,11 @@ public class FoundationServiceImpl extends ServiceImpl<FoundationDao, Foundation
         );
 
         return new PageUtils(page);
+    }
+
+    @Override
+    public List<HashMap<String, Double>> getThemeMoney() {
+        return foundationDao.getThemeMoney();
     }
 
     @Override
